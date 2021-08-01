@@ -32,16 +32,26 @@ let contentArray = content.split("\r\n");
 // console.log(contentArray);
 let BandNtogether= optionArr.includes("-n") && optionArr.includes("-b")
 
- if(BandNtogether==true){
-    let indexN=optionArr.indexOf("-n");
-    let indexB=optionArr.indexOf("-b");
-    if(indexN>indexB){
-        optionArr.splice(indexN,1);
-    }else{
-        optionArr.splice(indexB,1);
+if (BandNtogether == true) {
+    let indexN = optionArr.indexOf("-n");
+    let indexB = optionArr.indexOf("-b");
+    if (indexN > indexB) {
+        for(let i = indexN;i< optionArr.length;i++){
+            if(optionArr[i] == "-n" || optionArr[i] =="-b" ){
+            optionArr.splice(i, 1); 
+            i--;
+        }
+    } 
+    } else {
+        for(let i = indexB;i< optionArr.length;i++){
+            if(optionArr[i] == "-n" || optionArr[i] =="-b" ){
+            optionArr.splice(i, 1); 
+            i--;
     }
 
- }
+}
+    }
+}
 
 let sPresent =  optionArr.includes("-s");
 if (sPresent ==true){
